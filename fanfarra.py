@@ -1,11 +1,18 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
+from tkinter import filedialog
+import os
+import platform
+import subprocess
+
 
 class FanfarraApp:
     def __init__(self, master):
+        self.btn_abrir_pdf = ttk.Button(master, text="Abrir PDF", command=self.abrir_pdf)
+        self.btn_abrir_pdf.pack(pady=10)
         self.master = master
-        master.title("Gerenciador de Fanfarra - Théo Brasidas")
+        master.title("Gerenciador de Fnfarra - Théo Brasidas")
 
         # Estado inicial
         self.fanfarra = 0
@@ -74,6 +81,8 @@ class FanfarraApp:
         except ValueError:
             messagebox.showerror("Erro", "Digite um valor válido de dano.")
 
+            
+
     def usar_reviver(self):
         if not self.reviver_usado:
             if self.fanfarra > 0:
@@ -109,6 +118,23 @@ class FanfarraApp:
         self.negacao_usos = 2
         self.sequencia_usos = 10
         self.atualizar_interface()
+
+    def abrir_pdf(self):
+        caminho_arquivo = filedialog.askopenfilename(
+            title="Selecione um arquivo PDF",
+            filetypes=[("Arquivos PDF", "*.pdf")]
+        )
+        if caminho_arquivo:
+            try:
+                if platform.system() == "Windows":
+                    os.startfile(caminho_arquivo)
+                elif platform.system() == "Darwin":  # macOS
+                    subprocess.run(["open", caminho_arquivo])
+                else:  # Linux
+                    subprocess.run(["xdg-open", caminho_arquivo])
+            except Exception as e:
+                messagebox.showerror("Erro", f"Não foi possível abrir o PDF.\nErro: {e}")
+
 
 if __name__ == "__main__":
     root = tk.Tk()
