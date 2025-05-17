@@ -5,7 +5,7 @@ from tkinter import ttk
 class FanfarraApp:
     def __init__(self, master):
         self.master = master
-        master.title("Gerenciador de cu - Théo Brasidas")
+        master.title("Gerenciador de Fanfarra - Théo Brasidas")
 
         # Estado inicial
         self.fanfarra = 0
