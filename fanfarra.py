@@ -43,6 +43,9 @@ class FanfarraApp:
 
         # Campo para adicionar dano
         self.entry_dano = tk.Entry(master, font=("Arial", 12), bg="#ffffff", fg=self.cor_texto)
+        self.entry_dano.bind("<Return>", lambda event: self.adicionar_dano())
+        self.btn_add_dano = ttk.Button(master, text="Adicionar Dano", command=self.adicionar_dano)
+        self.btn_add_dano.pack(pady=5)
         self.entry_dano.pack()
 
         self.btn_add_dano = ttk.Button(master, text="Adicionar Dano", command=self.adicionar_dano)
