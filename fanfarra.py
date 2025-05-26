@@ -17,13 +17,13 @@ class FanfarraApp:
         # Estado inicial
         self.fanfarra = 0
         self.reviver_usado = False
-        self.negacao_usos = 2
-        self.sequencia_usos = 10
+        self.negacao_usos = 200
+        self.sequencia_usos = 100
 
         # Cores pastéis
-        self.fundo = "#fef2cc"  # Amarelo suave
-        self.cor_botao = "#ffb3b3"  # Vermelho suave
-        self.cor_texto = "#333333"  # Texto em cinza escuro
+        self.fundo = "#fef2cc"  
+        self.cor_botao = "#ffb3b3"  
+        self.cor_texto = "#333333"  
 
         # Personalizar estilo dos botões com ttk
         self.style = ttk.Style()
@@ -115,8 +115,8 @@ class FanfarraApp:
     def resetar_luta(self):
         self.fanfarra = 0
         self.reviver_usado = False
-        self.negacao_usos = 2
-        self.sequencia_usos = 10
+        self.negacao_usos = 200
+        self.sequencia_usos = 100
         self.atualizar_interface()
 
     def abrir_pdf(self):
